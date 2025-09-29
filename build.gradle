@@ -114,7 +114,7 @@ jar {
 task copyDependencies { doLast {
     // logger.lifecycle("configurations.runtimeClasspath: ${configurations.runtimeClasspath.files({true}).join('\n')}\n\n")
     // logger.lifecycle("project(':framework').configurations.runtimeClasspath: ${project(':framework').configurations.runtimeClasspath.files({true}).join('\n')}")
-    copy { from (configurations.runtimeClasspath - project(':framework').configurations.runtimeClasspath - project(':framework').jar.archivePath)
+    copy { from (configurations.runtimeClasspath - project(':framework').configurations.runtimeClasspath - project(':framework').jar.archiveFile)
         into file(projectDir.absolutePath + '/lib') }
 } }
 copyDependencies.dependsOn cleanLib
